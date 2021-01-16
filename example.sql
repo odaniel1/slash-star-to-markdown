@@ -19,25 +19,25 @@ file is a valid SQL file, which could be used to run the query above.
 
 Whenever code is pushed to GitHub (eg. updates are made), this file is updated
 (automatically, by a GitHub Action) by replacing text that is contained in
-`/<i>*slash-star*<i>/` comment blocks with plain text, and wrapping the remaining
+`/&#x200B;*slash-star*&#x200B;/` comment blocks with plain text, and wrapping the remaining
 text into code chunks - enabling literate (eg. pretty) rendering of the code.
 
 ## How Can I Use This?
-::one:: Clone this repository!
+:one: Clone this repository!
 
-::two:: Edit the `example.sql` file to include your own SQL query.
+:two: Edit the `example.sql` file to include your own SQL query.
 
-::three:: Any comments that you want to appear as *normal* text should be wrapped
-in `/<i>*slash-star*<i>/` comments; comments that you want to maintain integrated
+:three: Any comments that you want to appear as *normal* text should be wrapped
+in `/&#x200B;*slash-star*&#x200B;/` comments; comments that you want to maintain integrated
 in the code can use `--` comments.
 
-::four:: Push your changes to GitHub - wait ~1 minute, and refresh and enjoy your
+:four: Push your changes to GitHub - wait ~1 minute, and refresh and enjoy your
 literate documentation. 
 
 ## Updates and Future Work
 This is a first prototype - here are a few things for the future:
 
-* `/<i>*slash-star*<i>/` comments are used in [more than 20](https://en.wikipedia.org/wiki/Comparison_of_programming_languages_(syntax)#Block_comments)
+* `/&#x200B;*slash-star*&#x200B;/` comments are used in [more than 20](https://en.wikipedia.org/wiki/Comparison_of_programming_languages_(syntax)#Block_comments)
 programming languages - this action could easily be expanded to cover all of these.
 
 * Who normally calls their files `example.sql`? We want to be able to document files
