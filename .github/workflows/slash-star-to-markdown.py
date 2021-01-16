@@ -40,9 +40,6 @@ else:
     # if not - need to add a trailing ```
     md_string = md_string + '```'
 
-# temporary test
-print(md_string)
-
 # write transcribed file to README
 md_fp = 'README.md'
 
