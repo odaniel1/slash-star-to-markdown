@@ -22,7 +22,7 @@ file is a valid SQL file, which could be used to run the query above.
 
 Whenever code is pushed to GitHub (eg. updates are made), this file is updated
 (automatically, by a GitHub Action) by replacing text that is contained in
-`/&#x200B;*slash-star*&#x200B;/` comment blocks with plain text, and wrapping the remaining
+\/\*slash-star\*\/ comment blocks with plain text, and wrapping the remaining
 text into code chunks - enabling literate (eg. pretty) rendering of the code.
 
 ## How Can I Use This?
@@ -31,7 +31,7 @@ text into code chunks - enabling literate (eg. pretty) rendering of the code.
 :two: Edit the `example.sql` file to include your own SQL query.
 
 :three: Any comments that you want to appear as *normal* text should be wrapped
-in `/&#x200B;*slash-star*&#x200B;/` comments; comments that you want to maintain integrated
+in \/\*slash-star\*\/ comments; comments that you want to maintain integrated
 in the code can use `--` comments.
 
 :four: Push your changes to GitHub - wait ~1 minute, and refresh and enjoy your
@@ -40,7 +40,7 @@ literate documentation.
 ## Updates and Future Work
 This is a first prototype - here are a few things for the future:
 
-* `/&#x200B;*slash-star*&#x200B;/` comments are used in [more than 20](https://en.wikipedia.org/wiki/Comparison_of_programming_languages_(syntax)#Block_comments)
+* \/\*slash-star\*\/ comments are used in [more than 20](https://en.wikipedia.org/wiki/Comparison_of_programming_languages_(syntax)#Block_comments)
 programming languages - this action could easily be expanded to cover all of these.
 
 * Who normally calls their files `example.sql`? We want to be able to document files
