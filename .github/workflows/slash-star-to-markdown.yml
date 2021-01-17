@@ -24,5 +24,5 @@ jobs:
           git diff	
           git config --global user.email "slash-star-to-md@bot.com"	
           git config --global user.name "slash-star-to-md-action"	
-          git diff --quiet || (git add '*' && git commit -m "Updated documentation")	
+          git diff --quiet || (git add -A && git commit -m "Updated documentation")	
           git push
