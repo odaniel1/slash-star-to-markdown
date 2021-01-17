@@ -1,5 +1,6 @@
 
 import re
+import glob
 
 # %% parses a string removing /* and */ from the start and end of slash-star
 # comment blocks, and placing code outside of blocks into markdown code chunks.
@@ -46,11 +47,17 @@ def parse_ss_to_md(fp):
 
 # %% Run script
 
-# parsed markdown string, and file to write out to 
-md_str = parse_ss_to_md('example.sql')
+sql_ext = re.compile('.sql$')
 
-md_fp = 'README.md'
+# find all .sql filepaths in repository
+for fp in glob.glob("*.sql"):
+    
+    # parse file to markdown string
+    md_str = parse_ss_to_md(fp)
 
-# write file out
-with open(md_fp, 'w') as md:
-    md.write(md_str)
+    # create output file path
+    md_fp = sql_ext.sub('.md', fp)
+
+    # write file out
+    with open(md_fp, 'w') as md:
+        md.write(md_str)
