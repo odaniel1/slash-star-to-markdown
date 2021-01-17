@@ -52,18 +52,12 @@ sql_ext = re.compile('.sql$')
 # find all .sql filepaths in repository
 for fp in glob.glob("*.sql"):
     
-    print(fp)     # DEBUGGING
-    
     # parse file to markdown string
     md_str = parse_ss_to_md(fp)
 
     # create output file path
     md_fp = sql_ext.sub('.md', fp)
 
-    print(md_fp)     # DEBUGGING
-    
     # write file out
     with open(md_fp, 'w') as md:
         md.write(md_str)
-
-print(glob.glob("*"))

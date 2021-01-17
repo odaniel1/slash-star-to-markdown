@@ -1,8 +1,10 @@
-/* # slash-star-to-markdown
+
+ # slash-star-to-markdown
 A GitHub Action workflow to auto generate literate documentation from executable
 scripts (eg. `.sql` files).
 
-## Example*/
+## Example
+```sql
 
 -- A small SQL query about South American camelids
 select 
@@ -12,7 +14,8 @@ select
 from CAMELIDS
 where GENUS in ('Lama', 'Vicugna')
 
-/*
+```
+
 ## Explanation
 This README has been generated from the file `README.sql`, automatically by
 GitHub using GitHub Actions. The base `.sql` file is a valid SQL script that
@@ -50,5 +53,4 @@ serve up documentation for all your code. ([GitHub Issue](https://github.com/oda
 
 * If you haven't changed `example.sql` (but have changed some other files) - then there's
 no need to re-run the GitHub action.  ([GitHub Issue](https://github.com/odaniel1/slash-star-to-markdown/issues/3))
-*/
 
