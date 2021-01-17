@@ -4,7 +4,7 @@ A GitHub Action workflow to auto generate literate documentation from executable
 scripts (eg. `.sql` files).
 
 ## Example
-```
+```sql
 
 -- A small SQL query about South American camelids
 select 
@@ -38,17 +38,18 @@ in the code can use `--` comments.
 literate documentation. 
 
 ## Updates and Future Work
-This is a first prototype - here are a few things for the future:
+This is a first prototype - a number of issues are already highlighted to improve
+future functionality; in particular:
 
 * \/\*slash-star\*\/ comments are used in [more than 20](https://en.wikipedia.org/wiki/Comparison_of_programming_languages_(syntax)#Block_comments)
-programming languages - this action could easily be expanded to cover all of these.
+programming languages - this action could easily be expanded to cover all of these ([GitHub Issue](https://github.com/odaniel1/slash-star-to-markdown/issues/1)).
 
 * Who normally calls their files `example.sql`? We want to be able to document files
 irrespective of their names.
 
 * Do you store multiple queries in the same repos? We'll need a solution to be able to
-serve up documentation for all your code.
+serve up documentation for all your code. ([GitHub Issue](https://github.com/odaniel1/slash-star-to-markdown/issues/2))
 
 * If you haven't changed `example.sql` (but have changed some other files) - then there's
-no need to re-run the GitHub action.
+no need to re-run the GitHub action.  ([GitHub Issue](https://github.com/odaniel1/slash-star-to-markdown/issues/3))
 
