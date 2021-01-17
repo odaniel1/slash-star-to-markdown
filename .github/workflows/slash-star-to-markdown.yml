@@ -25,5 +25,5 @@ jobs:
           git config --global user.email "slash-star-to-md@bot.com"	
           git config --global user.name "slash-star-to-md-action"
           git add ./*.md
-          git commit -m "Updated documentation"
+          git diff --cached || (git commit -m "Updated documentation")
           git push
