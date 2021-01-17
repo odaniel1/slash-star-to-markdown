@@ -15,14 +15,14 @@ with open(ss_fp, 'r') as ss:
     
     # replace /* and */ with markdown start/end blocks
     md_string = ss_start.sub('```\n', ss_string)
-    md_string = ss_end.sub('\n```', md_string)
+    md_string = ss_end.sub('\n```sql', md_string)
 
 
 # matches leading ``` at the start of a file
 md_lead = re.compile('^[\n\s]{0,}```')
 
 # matches trailing ``` at the end of a file
-md_trail = re.compile('```[\n\s]{0,}\Z')
+md_trail = re.compile('```sql[\n\s]{0,}\Z')
 
 # did the file start with a comment or not?
 if md_lead.match(md_string):
@@ -30,7 +30,7 @@ if md_lead.match(md_string):
     md_string = md_lead.sub('', md_string)
 else:
     # if not - need to add a leading ```
-    md_string = '```\n' + md_string
+    md_string = '```sql\n' + md_string
 
 # did the file end with a comment or not?
 if md_trail.search(md_string):
