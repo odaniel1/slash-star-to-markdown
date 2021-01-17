@@ -1,8 +1,5 @@
 on:
   push:
-    branches:
-      - main
-      - master
 
 name: slash-star-to-markdown
 
@@ -22,10 +19,10 @@ jobs:
         run: |
           python .github/workflows/slash-star-to-markdown.py
 
-      - name: Commit and push if README changed	
+      - name: Commit and push changes	
         run: |
           git diff	
           git config --global user.email "slash-star-to-md@bot.com"	
           git config --global user.name "slash-star-to-md-action"	
-          git diff --quiet || (git add README.md && git commit -m "Updated README")	
+          git diff --quiet || (git add '*' && git commit -m "Updated documentation")	
           git push

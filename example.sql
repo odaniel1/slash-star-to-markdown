@@ -14,8 +14,9 @@ where GENUS in ('Lama', 'Vicugna')
 
 /*
 ## Explanation
-The README you are currently reading is generated from the file `example.sql`. That
-file is a valid SQL file, which could be used to run the query above.
+This README has been generated from the file `README.sql`, automatically by
+GitHub using GitHub Actions. The base `.sql` file is a valid SQL script that
+could be used to run the query above.
 
 Whenever code is pushed to GitHub (eg. updates are made), this file is updated
 (automatically, by a GitHub Action) by replacing text that is contained in
