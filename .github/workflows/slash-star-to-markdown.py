@@ -65,3 +65,5 @@ for fp in glob.glob("*.sql"):
     # write file out
     with open(md_fp, 'w') as md:
         md.write(md_str)
+
+print(glob.glob("*"))
