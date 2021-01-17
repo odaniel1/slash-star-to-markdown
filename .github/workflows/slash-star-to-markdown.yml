@@ -21,6 +21,7 @@ jobs:
 
       - name: Commit and push changes	
         run: |
+          git status
           git diff	
           git config --global user.email "slash-star-to-md@bot.com"	
           git config --global user.name "slash-star-to-md-action"	
