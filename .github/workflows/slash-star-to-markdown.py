@@ -50,7 +50,7 @@ def parse_ss_to_md(fp):
 sql_ext = re.compile('.sql$')
 
 # find all .sql filepaths in repository
-for fp in glob.glob("*.sql"):
+for fp in glob.glob('**/*.sql', recursive = True):
     
     # parse file to markdown string
     md_str = parse_ss_to_md(fp)
@@ -60,4 +60,5 @@ for fp in glob.glob("*.sql"):
 
     # write file out
     with open(md_fp, 'w') as md:
+        print("Writing: {}".format(md_fp))
         md.write(md_str)
