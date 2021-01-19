@@ -15,9 +15,10 @@ jobs:
         with:
          python-version: 3.8 #install the python needed
 
-      - name: run python
+      - name: Get git diffs and update documentation
         run: |
-          python .github/workflows/slash-star-to-markdown.py
+          GIT_DIFFS=$(git diff-tree --no-commit-id --name-only -r HEAD)
+          python .github/workflows/slash-star-to-markdown.py GIT_DIFFS
 
       - name: Commit and push changes	
         run: |
