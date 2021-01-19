@@ -18,6 +18,7 @@ jobs:
       - name: Get git diffs and update documentation
         run: |
           GIT_DIFFS=$(git diff-tree --no-commit-id --name-only -r HEAD)
+          echo $GIT_DIFFS
           python .github/workflows/slash-star-to-markdown.py $GIT_DIFFS
 
       - name: Commit and push changes	
