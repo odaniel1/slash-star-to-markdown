@@ -51,7 +51,7 @@ sql_ext = re.compile('.sql$')
 
 # file paths (intended to be Git diffs) are provided as system arguments
 for fp in sys.argv:
-    
+    print(fp)
     # reduce to .sql files
     if fp.endswith('.sql'):
         
