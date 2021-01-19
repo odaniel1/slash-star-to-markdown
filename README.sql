@@ -61,8 +61,5 @@ future functionality; in particular:
 
 * \/\*slash-star\*\/ comments are used in [more than 20](https://en.wikipedia.org/wiki/Comparison_of_programming_languages_(syntax)#Block_comments)
 programming languages - this action could easily be expanded to cover all of these ([GitHub Issue](https://github.com/odaniel1/slash-star-to-markdown/issues/1)).
-
-* Documentation is currently regenerated for all `.sql` files on every push to GitHub.
-This should be more conservative and only update documentation when needed. ([GitHub Issue](https://github.com/odaniel1/slash-star-to-markdown/issues/3))
 */
 
