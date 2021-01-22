@@ -18,6 +18,7 @@ jobs:
       - name: Get git diffs
         id: diffs
         run: |
+          git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
           echo ::set-output name=GIT_DIFFS::git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
 
       - name: print diffs
@@ -26,7 +27,7 @@ jobs:
 
       - name: Update documentation
         run: |
-          python .github/workflows/slash-star-to-markdown.py ${{ steps.diffs.outputs.GIT_DIFFS }}
+          python .github/workflows/slash-star-to-markdown.py (git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }})
 
       - name: Commit and push changes	
         run: |
