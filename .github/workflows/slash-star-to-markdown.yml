@@ -18,13 +18,10 @@ jobs:
       - name: Get git diffs
         id: diffs
         run:
-          echo ::set-output name=GIT_DIFFS::$(git diff-tree --no-commit-id --name-only -r HEAD)
+          echo {::set-output name=GIT_DIFFS::$(git diff-tree --no-commit-id --name-only -r HEAD)}
 
-      - name: Set selected color
-        run: echo '::set-output name=SELECTED_COLOR::green'
-        id: random-color-generator
-      - name: Get color
-        run: echo "The selected color is ${{ steps.diffs.outputs.GIT_DIFFS }}"
+      - name: print diffs
+        run: echo "Git diffs since last commit: ${{ steps.diffs.outputs.GIT_DIFFS }}"
 
       - name: Update documentation
         run: |
