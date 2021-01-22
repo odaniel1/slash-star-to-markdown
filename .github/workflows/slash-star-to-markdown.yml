@@ -9,7 +9,7 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
 
       - uses: actions/setup-python@v2
         with:
@@ -23,7 +23,7 @@ jobs:
           # echo ::set-output name=FOO::2 + 2
 
       - name: print diffs
-        run: echo 'llama' # echo "The selected color is ${{ steps.diffs.outputs.GIT_DIFFS }}"
+        run: git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
 
       - name: Update documentation
         run: |
