@@ -17,17 +17,16 @@ jobs:
          
       - name: Get git diffs
         id: diffs
-        run: |
-          echo ::set-output name=GIT_DIFFS::$(git diff-tree --no-commit-id --name-only -r HEAD)
+        run:
+          echo '::set-output name=GIT_DIFFS::$(git diff-tree --no-commit-id --name-only -r HEAD)'
           echo $'llama'
-          echo git diff-tree --no-commit-id --name-only -r HEAD
           echo $'alpaca'
 
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
         id: random-color-generator
       - name: Get color
-        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+        run: echo "The selected color is ${{ steps.diffs.outputs.GIT_DIFFS }}"
 
       - name: Update documentation
         run: |
