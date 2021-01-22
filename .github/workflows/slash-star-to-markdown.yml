@@ -18,16 +18,14 @@ jobs:
       - name: Get git diffs
         id: diffs
         run: |
-          echo git diff-tree --no-commit-id --name-only -r HEAD
-          # echo ::set-output name=GIT_DIFFS::$(echo git diff-tree --no-commit-id --name-only -r HEAD)
-          # echo ::set-output name=FOO::2 + 2
+          echo ::set-output name=GIT_DIFFS::git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
 
       - name: print diffs
-        run: git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
+        run: |
+          echo "The selected color is ${{ steps.diffs.outputs.GIT_DIFFS }}"
 
       - name: Update documentation
         run: |
-          echo ${{ steps.diffs.outputs.GIT_DIFFS }}
           python .github/workflows/slash-star-to-markdown.py ${{ steps.diffs.outputs.GIT_DIFFS }}
 
       - name: Commit and push changes	
