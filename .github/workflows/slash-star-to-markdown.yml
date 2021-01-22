@@ -18,9 +18,7 @@ jobs:
       - name: Get git diffs
         id: diffs
         run:
-          echo '::set-output name=GIT_DIFFS::$(git diff-tree --no-commit-id --name-only -r HEAD)'
-          echo $'llama'
-          echo $'alpaca'
+          echo ::set-output name=GIT_DIFFS::$(git diff-tree --no-commit-id --name-only -r HEAD)
 
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
