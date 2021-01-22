@@ -20,7 +20,7 @@ jobs:
         run: |
           echo ::set-output name=GIT_DIFFS::$(git diff-tree --no-commit-id --name-only -r HEAD)
           echo $'llama'
-          echo $(git diff-tree --no-commit-id --name-only -r HEAD)
+          echo ${{(git diff-tree --no-commit-id --name-only -r HEAD)}}
           echo $'alpaca'
 
       - name: Update documentation
