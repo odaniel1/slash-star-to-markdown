@@ -23,7 +23,7 @@ jobs:
           # echo ::set-output name=FOO::2 + 2
 
       - name: print diffs
-        run: # echo "The selected color is ${{ steps.diffs.outputs.GIT_DIFFS }}"
+        run: echo 'llama' # echo "The selected color is ${{ steps.diffs.outputs.GIT_DIFFS }}"
 
       - name: Update documentation
         run: |
