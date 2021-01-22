@@ -18,7 +18,7 @@ jobs:
       - name: Get git diffs
         id: diffs
         run:
-          echo {::set-output name=GIT_DIFFS::$(git diff-tree --no-commit-id --name-only -r HEAD)}
+          echo ::set-output name=GIT_DIFFS::$(echo git diff-tree --no-commit-id --name-only -r HEAD)
 
       - name: print diffs
         run: echo "Git diffs since last commit: ${{ steps.diffs.outputs.GIT_DIFFS }}"
