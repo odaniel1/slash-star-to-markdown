@@ -18,10 +18,14 @@ jobs:
       - name: Get git diffs
         id: diffs
         run: |
-          echo ::set-output name=GIT_DIFFS:: $(git diff-tree --no-commit-id --name-only -r HEAD)
+          echo ::set-output name=GIT_DIFFS::$(git diff-tree --no-commit-id --name-only -r HEAD)
+          echo $'llama'
+          echo $(git diff-tree --no-commit-id --name-only -r HEAD)
+          echo $'alpaca'
 
       - name: Update documentation
         run: |
+          echo ${{ steps.diffs.outputs.GIT_DIFFS }}
           python .github/workflows/slash-star-to-markdown.py ${{ steps.diffs.outputs.GIT_DIFFS }}
 
       - name: Commit and push changes	
