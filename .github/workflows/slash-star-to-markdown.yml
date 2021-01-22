@@ -14,11 +14,15 @@ jobs:
       - uses: actions/setup-python@v2
         with:
          python-version: 3.8 #install the python needed
-
-      - name: Get git diffs and update documentation
+         
+      - name: Get git diffs
+        id: diffs
         run: |
-          GIT_DIFFS=$(git diff-tree --no-commit-id --name-only -r HEAD)
-          python .github/workflows/slash-star-to-markdown.py
+          echo ::set-output name=GIT_DIFFS:: $(git diff-tree --no-commit-id --name-only -r HEAD)
+
+      - name: Update documentation
+        run: |
+          python .github/workflows/slash-star-to-markdown.py ${{ steps.diffs.outputs.GIT_DIFFS }}
 
       - name: Commit and push changes	
         run: |
