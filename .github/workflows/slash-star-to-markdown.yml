@@ -27,7 +27,7 @@ jobs:
 
       - name: Update documentation
         run: |
-          python .github/workflows/slash-star-to-markdown.py (git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }})
+          python .github/workflows/slash-star-to-markdown.py git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
 
       - name: Commit and push changes	
         run: |
