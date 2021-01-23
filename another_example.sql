@@ -7,7 +7,7 @@ you need to click through the links in GitHub.
 
 ## Another Example
 
-Inspired by the R package [Palmer Penguins](https://github.com/allisonhorst/palmerpenguins)
+Inspired by Allison Horst's R package [Palmer Penguins](https://github.com/allisonhorst/palmerpenguins)
 /*
 
 -- Here's a query about marine birds

@@ -10,14 +10,25 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v2
         with:
          python-version: 3.8 #install the python needed
-
-      - name: run python
+         
+      - name: Get git diffs
+        id: diffs
         run: |
-          python .github/workflows/slash-star-to-markdown.py
+          echo ::set-output name=GIT_DIFFS::$(git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }})
+
+      - name: print diffs
+        run: |
+          echo "The selected color is ${{ steps.diffs.outputs.GIT_DIFFS }}"
+
+      - name: Update documentation
+        run: |
+          python .github/workflows/slash-star-to-markdown.py ${{ steps.diffs.outputs.GIT_DIFFS }}
 
       - name: Commit and push changes	
         run: |

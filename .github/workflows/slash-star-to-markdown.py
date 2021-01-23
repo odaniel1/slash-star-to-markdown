@@ -1,6 +1,6 @@
 
 import re
-import glob
+import sys 
 
 # %% parses a string removing /* and */ from the start and end of slash-star
 # comment blocks, and placing code outside of blocks into markdown code chunks.
@@ -49,16 +49,21 @@ def parse_ss_to_md(fp):
 
 sql_ext = re.compile('.sql$')
 
-# find all .sql filepaths in repository
-for fp in glob.glob('**/*.sql', recursive = True):
+# file paths (intended to be Git diffs) are provided as system arguments
+for fp in sys.argv:
+
+    print("System arguments parsed: {}".format(fp))
     
-    # parse file to markdown string
-    md_str = parse_ss_to_md(fp)
+    # reduce to .sql files
+    if fp.endswith('.sql'):
+        
+        # parse file to markdown string
+        md_str = parse_ss_to_md(fp)
 
-    # create output file path
-    md_fp = sql_ext.sub('.md', fp)
+        # create output file path
+        md_fp = sql_ext.sub('.md', fp)
 
-    # write file out
-    with open(md_fp, 'w') as md:
-        print("Writing: {}".format(md_fp))
-        md.write(md_str)
+        # write file out
+        with open(md_fp, 'w') as md:
+            print("Writing: {}".format(md_fp))
+            md.write(md_str)
