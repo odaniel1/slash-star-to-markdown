@@ -18,8 +18,7 @@ jobs:
       - name: Get git diffs
         id: diffs
         run: |
-          git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
-          echo ::set-output name=GIT_DIFFS::git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
+          echo ::set-output name=GIT_DIFFS::$(git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }})
 
       - name: print diffs
         run: |
