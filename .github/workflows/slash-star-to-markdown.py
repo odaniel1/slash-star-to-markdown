@@ -1,6 +1,31 @@
 
 import re
-import sys 
+import sys
+from os import path
+
+# list of file extensions that will be processed to generate markdown
+ss_ext = [
+    '.as'     # ActionScript'
+    ,'.ahk'   # AutoHotkey
+    ,'.c'     # C
+    ,'.cs'    # C#
+    ,'.cpp'   # C++
+    ,'.css'   # CSS
+    ,'.d'     # D
+    ,'.go'    # Go
+    ,'.java'  # Java
+    ,'.js'    # JavaScript
+    ,'.kt'    # Kotlin
+    ,'.m'     # Objective-C
+    ,'php'    # PHP
+    ,'.pl'    # Prolog
+    ,'.rs'    # Rust
+    ,'scala'  # Scala
+    ,'.sas'   # SAS
+    ,'.sass'  # Sass
+    ,'.sql'   # SQL
+    ,'.swift' # Swift
+    ]
 
 # %% parses a string removing /* and */ from the start and end of slash-star
 # comment blocks, and placing code outside of blocks into markdown code chunks.
@@ -47,23 +72,26 @@ def parse_ss_to_md(fp):
 
 # %% Run script
 
-sql_ext = re.compile('.sql$')
-
 # file paths (intended to be Git diffs) are provided as system arguments
 for fp in sys.argv:
-
-    print("System arguments parsed: {}".format(fp))
     
-    # reduce to .sql files
-    if fp.endswith('.sql'):
-        
+    # split filepath into name, extension pair
+    fp_name, fp_ext = path.splitext(fp)
+
+    # convert file extension to lower case before checking if appears in ss_ext
+    if fp_ext.lower() in ss_ext:
+
         # parse file to markdown string
         md_str = parse_ss_to_md(fp)
 
         # create output file path
-        md_fp = sql_ext.sub('.md', fp)
+        md_fp = fp_name + '.md'
 
         # write file out
         with open(md_fp, 'w') as md:
             print("Writing: {}".format(md_fp))
             md.write(md_str)
+        
+        print("Documentation generated: {}".format(md_fp))
+    
+
