@@ -1,7 +1,7 @@
 
  # slash-star-to-markdown
 A GitHub Action workflow to auto generate literate documentation from executable
-scripts (eg. `.sql` files).
+scripts (for example, `.sql` files).
 
 ## Example
 ```sql
@@ -18,7 +18,7 @@ where GENUS in ('Lama', 'Vicugna')
 
 ## Explanation
 This README has been generated from the file `README.sql`, automatically by
-GitHub using GitHub Actions. The base `.sql` file is a valid SQL script that
+GitHub using GitHub Actions. `README.sql` is a valid SQL script that
 could be used to run the query above.
 
 Whenever code is pushed to GitHub (eg. updates are made), this file is updated
@@ -26,19 +26,29 @@ Whenever code is pushed to GitHub (eg. updates are made), this file is updated
 \/\*slash-star\*\/ comment blocks with plain text, and wrapping the remaining
 text into code chunks - enabling literate (eg. pretty) rendering of the code.
 
+This approach to in-code documentation can be adapted for any language that uses
+\/\*slash-star\*\/ comment blocks. Support is currently provided for the
+languages listed in [this table](https://en.wikipedia.org/wiki/Comparison_of_programming_languages_(syntax)#Block_comments) 
+(Accessed Jan. 20).
+
+Currently only the primary file extension for each language is included: eg. for
+C++, `.cpp` files will be documented, but `.h` files will not.
+
+Any valid omitted extensions are welcome to be added via pull request.
+
 ## How Can I Use This?
 :one: Click the green **Use this template** button at the top of the page, and
 follow the usual steps to create a GitHub repository.
 
-:two: Use the repo like any other GitHub repo - you can remove any of the files
-outside of the `.github` directory.
+:two: Remove any of the example scripts from the repo (if you wish), leaving only
+the `.github` directory.
 
-:three: Write your own `.sql` script, and push your changes to GitHub. Any
-comments that you want to appear as *normal* text should be wrapped in
+:three: Use the repo like any other! When writing scripts in supported languages, any
+comments that you want to render  as *normal* text in the markdown file should be wrapped in
 \/\*slash-star\*\/ comments; comments that you want to maintain integrated
 in the code can use `--` comments.
 
-:four: Wait ~30 seconds, view th repo in GitHub and enjoy reading your newly
+:four: Push changes to GitHub, wait ~30 seconds and enjoy reading your newly
 rendered makdown documentation (if your SQL file was `pistachio-opinions/wonderful-pistachios.sql`
 then the documentation will be `pistachio-opinions/wonderful-pistachios.md`). 
 
@@ -56,12 +66,4 @@ not create a file called `README.sql`.
 that you'd then need to debug.
 
 * Once the GitHub action has run, your local copy of the repo will be behind the remote - you should
-therefore always pull changes before committing/pushing to GitHub.
-
-## Updates and Future Work
-This is a first prototype - a number of issues are already highlighted to improve
-future functionality; in particular:
-
-* \/\*slash-star\*\/ comments are used in [more than 20](https://en.wikipedia.org/wiki/Comparison_of_programming_languages_(syntax)#Block_comments)
-programming languages - this action could easily be expanded to cover all of these ([GitHub Issue](https://github.com/odaniel1/slash-star-to-markdown/issues/1)).
-
+therefore always pull changes before committing/pushing to GitHub.```
