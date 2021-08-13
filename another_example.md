@@ -11,7 +11,6 @@ you need to click through the links in GitHub.
 Inspired by Allison Horst's R package [Palmer Penguins](https://github.com/allisonhorst/palmerpenguins)
 ```
 
-
 -- Here's a query about marine birds
 select 
    BLL_LENGTH_MM
@@ -20,6 +19,4 @@ select
   ,YEAR
 from PALMERPENGUINS
 where species = 'Gentoo'
-
-
 ```
