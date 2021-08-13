@@ -1,6 +1,6 @@
 
  # slash-star-to-markdown
-A GitHub Action workflow to auto generate literate documentation from executable
+A GitHub Action workflow to generate literate documentation from executable
 scripts (for example, `.sql` files).
 
 ## Example
@@ -21,15 +21,11 @@ This README has been generated from the file `README.sql`, automatically by
 GitHub using GitHub Actions. `README.sql` is a valid SQL script that
 could be used to run the query above.
 
-Whenever code is pushed to GitHub (eg. updates are made), this file is updated
-(automatically, by a GitHub Action) by replacing text that is contained in
-\/\*slash-star\*\/ comment blocks with plain text, and wrapping the remaining
-text into code chunks - enabling literate (eg. pretty) rendering of the code.
-
-This approach to in-code documentation can be adapted for any language that uses
-\/\*slash-star\*\/ comment blocks. Support is currently provided for the
-languages listed in [this table](https://en.wikipedia.org/wiki/Comparison_of_programming_languages_(syntax)#Block_comments) 
-(Accessed Jan. 20).
+With this template included in a repo, whenever files are pushed to GitHub this
+action will check for files in supported formats (including C++, Java, SQl; the
+full list is [here](https://github.com/odaniel1/slash-star-to-markdown/blob/main/.github/workflows/slash-star-to-markdown.py#L7)), and create an associated markdown file replacing text
+contained in \/\*slash-star\*\/ comment blocks with plain text, and wrapping the
+remaining text into code chunks - creating literate documentation for the code.
 
 Currently only the primary file extension for each language is included: eg. for
 C++, `.cpp` files will be documented, but `.h` files will not.
@@ -66,4 +62,5 @@ not create a file called `README.sql`.
 that you'd then need to debug.
 
 * Once the GitHub action has run, your local copy of the repo will be behind the remote - you should
-therefore always pull changes before committing/pushing to GitHub.```
+therefore always pull changes before committing/pushing to GitHub.
+```
