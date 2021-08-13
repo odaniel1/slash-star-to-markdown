@@ -24,6 +24,7 @@ ss_ext = [
     ,'.sas'   # SAS
     ,'.sass'  # Sass
     ,'.sql'   # SQL
+    ,'.stan'  # Stan
     ,'.swift' # Swift
     ]
 
@@ -66,7 +67,7 @@ def parse_ss_to_md(fp):
         md_str = md_trail.sub('', md_str)
     else:
         # if not - need to add a trailing ```
-        md_str = md_str + '```'
+        md_str = md_str + '\n```'
         
     return md_str
 
